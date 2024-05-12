@@ -8,10 +8,10 @@ export default function HomeCard() {
         {seputarAceh.map((item) => (
           <div
             key={item.id}
-            className="px-5 py-5 border-2 border-yellow-primary rounded-2xl flex flex-col gap-6 w-[400px] h-[500px] cursor-pointer"
+            className="px-5 py-5 border-2 border-yellow-primary rounded-2xl flex flex-col gap-6 w-full h-full cursor-pointer"
           >
             <img
-              className="rounded-2xl w-full h-full bg-contain"
+              className="rounded-2xl w-auto h-auto bg-contain"
               src={item.url}
               width={500}
               height={500}
@@ -19,7 +19,7 @@ export default function HomeCard() {
               alt="seputar aceh"
             />
             <div className="flex flex-col gap-2">
-              <h3 className="text-2xl font-semibold">{item.tittle}</h3>
+              <h3 className="text-xl font-semibold">{item.tittle}</h3>
               <h4 className="text-sm">{item.desc}</h4>
             </div>
             <p className="text-xs">{item.timePost}</p>
