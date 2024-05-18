@@ -7,11 +7,13 @@ export default function DestinasiUnggulan() {
   return (
     <>
       <div className="px-20">
-        <div className="flex justify-between items-start">
+        <div className="flex justify-between items-center">
           <HeadingSection>Destinasi Unggulan</HeadingSection>
-          <button className="bg-yellow-primary text-white flex justify-center items-center py-1.5 px-4 text-xs gap-1 rounded-xl">
-            Lihat Semua <Arrowright />
-          </button>
+          <a href="/destinasi-wisata">
+            <button className="bg-yellow-primary text-white flex justify-center items-center py-1.5 px-4 text-xs gap-1 rounded-xl mb-6">
+              Lihat Semua <Arrowright />
+            </button>
+          </a>
         </div>
         <div className="grid grid-cols-3 gap-10">
           {unggulan.map((item) => (

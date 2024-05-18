@@ -6,14 +6,16 @@ import News from "../../assets/icons/news";
 export default function SecondNavigation() {
   return (
     <>
-      <div className="px-20 flex">
+      <div className="px-20 flex gap-6">
         <div className="flex justify-start items-center gap-5">
-          <div className="bg-white h-20 w-20 rounded-full flex justify-center items-center shadow-base">
-            <Mountain />
-          </div>
+          <a href="/destinasi-wisata">
+            <div className="bg-white h-20 w-20 rounded-full flex justify-center items-center shadow-base">
+              <Mountain />
+            </div>
+          </a>
           <div className="flex flex-col gap-1">
             <p className="text-yellow-primary text-lg font-semibold">
-              Destinasi wisata Aceh
+              <a href="/destinasi-wisata">Destinasi wisata Aceh</a>
             </p>
             <p className="text-gray-400 w-72 text-sm">
               Beragam destinasi wisata Aceh yang wajib dikunjungi untuk berlibur
@@ -22,12 +24,14 @@ export default function SecondNavigation() {
           </div>
         </div>
         <div className="flex justify-start items-center gap-5">
-          <div className="bg-white h-20 w-20 rounded-full flex justify-center items-center shadow-base">
-            <Festival />
-          </div>
+          <a href="/festival">
+            <div className="bg-white h-20 w-20 rounded-full flex justify-center items-center shadow-base">
+              <Festival />
+            </div>
+          </a>
           <div className="flex flex-col gap-1">
             <p className="text-yellow-primary text-lg font-semibold">
-              Festival Aceh
+              <a href="/festival">Festival Aceh</a>
             </p>
             <p className="text-gray-400 w-72 text-sm">
               Beragam Festival di Aceh yang menarik di setiap tahunnya.
@@ -35,12 +39,15 @@ export default function SecondNavigation() {
           </div>
         </div>
         <div className="flex justify-start items-center gap-5">
-          <div className="bg-white h-20 w-20 rounded-full flex justify-center items-center shadow-base">
-            <News />
-          </div>
+          <a href="/berita">
+            <div className="bg-white h-20 w-20 rounded-full flex justify-center items-center shadow-base">
+              <News />
+            </div>
+          </a>
+
           <div className="flex flex-col gap-1">
             <p className="text-yellow-primary text-lg font-semibold">
-              Seputar Aceh
+              <a href="/berita">Seputar Aceh</a>
             </p>
             <p className="text-gray-400 w-72 text-sm">
               Dapatkan berita lengkap mengenai wisata tentang Aceh.

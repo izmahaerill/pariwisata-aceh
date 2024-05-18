@@ -1,7 +1,14 @@
 import React from "react";
 import seputarAceh from "../../data-json/seputar-aceh";
+import { useNavigate } from "react-router-dom";
 
 export default function HomeCard() {
+  const navigate = useNavigate();
+
+  const handleCardClick = (id) => {
+    navigate(`/berita/${id}`);
+  };
+
   return (
     <>
       <div className="flex justify-center items-center gap-10">
@@ -9,6 +16,7 @@ export default function HomeCard() {
           <div
             key={item.id}
             className="px-5 py-5 border-2 border-yellow-primary rounded-2xl flex flex-col gap-6 w-full h-full cursor-pointer"
+            onClick={() => handleCardClick(item.id)}
           >
             <img
               className="rounded-2xl w-auto h-auto bg-contain"
