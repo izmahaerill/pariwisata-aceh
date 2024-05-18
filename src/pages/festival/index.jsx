@@ -1,7 +1,8 @@
 import React from "react";
 import Navigation from "../../components/Navigation";
-import ArrowBase from "../../assets/icons/arrow-base";
 import Festival from "../../components/cards/Festival";
+import ArrowRightRegular from "../../assets/icons/arrow-right-regular";
+import ArrowLeftRegular from "../../assets/icons/arrow-left-regular";
 
 export default function index() {
   return (
@@ -20,10 +21,10 @@ export default function index() {
               <h1 className="text-white">Mei 2024</h1>
               <div className="flex gap-3">
                 <button>
-                  <ArrowBase />
+                  <ArrowLeftRegular />
                 </button>
                 <button className="">
-                  <ArrowBase />
+                  <ArrowRightRegular />
                 </button>
               </div>
             </div>

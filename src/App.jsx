@@ -4,7 +4,8 @@ import Home from "./pages/index";
 import Festival from "./pages/festival/index";
 import Bookmark from "./pages/bookmark";
 import Berita from "./pages/berita";
-import Auth from "./pages/auth";
+import Login from "./pages/login";
+import Register from "./pages/register";
 
 function App() {
   const router = createBrowserRouter([
@@ -35,8 +36,12 @@ function App() {
       element: <Berita />,
     },
     {
-      path: "/auth",
-      element: <Auth />,
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
     },
   ]);
 
