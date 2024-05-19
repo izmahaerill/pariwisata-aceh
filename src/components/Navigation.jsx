@@ -75,11 +75,11 @@ export default function Navigation({ children }) {
                 </div>
               )}
             </div>
-            <a href="/auth">
+            <a href="/login">
               <button className="outline outline-1 outline-yellow-primary py-[2px] px-5 rounded-md hover:bg-yellow-primary hover:text-white duration-150 ease-in-out">
                 Login
               </button>
-            </a>
+              </a>
           </div>
         </nav>
       </header>
