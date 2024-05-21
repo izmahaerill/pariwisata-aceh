@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import LOGO from "/images/Logo.png";
+import GOOGLE_ICON from "/images/Icon_Google.svg"; 
+import FACEBOOK_ICON from "/images/Icon_FB.svg"; 
+import APPLE_ICON from "/images/Icon_Apple.svg"; 
 
 export default function Register() {
   return (
@@ -52,6 +55,11 @@ export default function Register() {
           <p className="text-md absolute font-normal text-[#00000022] bg-yellow-primary px-2">
             Daftar Dengan
           </p>
+        </div>
+        <div className="w-full flex items-center justify-center my-4">
+          <img src={GOOGLE_ICON} alt="Google_Icon" className="h-8 mr-6" />
+          <img src={FACEBOOK_ICON} alt="Facebook_Icon" className="h-8 mr-6" />
+          <img src={APPLE_ICON} alt="Apple_Icon" className="h-8 mr-6" />
         </div>
       </div>
 
