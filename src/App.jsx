@@ -6,6 +6,8 @@ import Bookmark from "./pages/bookmark";
 import Berita from "./pages/berita";
 import Login from "./pages/login";
 import Register from "./pages/register";
+import DetailBerita from "./pages/berita/detailBerita.jsx";
+import DetailDestinasiWisata from "./pages/destinasi-wisata/detailDestinasiWisata";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,14 +20,12 @@ function App() {
       element: <DestinasiWisata />,
     },
     {
+      path: "/destinasi-wisata/:id",
+      element: <DetailDestinasiWisata />,
+    },
+    {
       path: "/festival",
       element: <Festival />,
-      children: [
-        {
-          path: "",
-          element: "",
-        },
-      ],
     },
     {
       path: "/bookmark",
@@ -33,6 +33,10 @@ function App() {
     },
     {
       path: "/berita/:id",
+      element: <DetailBerita />,
+    },
+    {
+      path: "/berita",
       element: <Berita />,
     },
     {
@@ -54,7 +58,7 @@ function App() {
 
 export default App;
 
-// WAYS TWO FOR SET ROUTES
+// ANOTHER WAYS FOR SET ROUTES
 
 // import React from "react";
 // import { BrowserRouter as Router, Route, Routes } from "react-router-dom";

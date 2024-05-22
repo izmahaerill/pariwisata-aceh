@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import IconFilter from "../../assets/icons/iconFilter";
+import destinasiWisata from "../../data-json/destinasi-wisata";
 
 const options = [
-  "Wisata Buatan",
-  "Wisata Alam",
-  "Pantai",
-  "Gunung",
-  "Air Terjun",
-  "Masjid",
-  "Monumen Sejarah",
-  "Taman Nasional",
+  { isActive: false, value: "Wisata Buatan" },
+  { isActive: false, value: "Wisata Alam" },
+  { isActive: false, value: "Pantai" },
+  { isActive: false, value: "Air Terjun" },
+  { isActive: false, value: "Masjid" },
+  { isActive: false, value: "Monumen Sejarah" },
+  { isActive: false, value: "Taman Nasional" },
 ];
 
-const ButtonFilter = () => {
+const ButtonFilter = ({ destinations, setDestinations }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOptions, setSelectedOptions] = useState(
-    new Array(options.length).fill(false)
-  );
+  const [selectedOptions, setSelectedOptions] = useState(options);
+  const [originalDestinations, setOriginalDestinations] =
+    useState(destinations);
 
   const toggleFilter = () => {
     setIsOpen(!isOpen);
@@ -24,25 +24,35 @@ const ButtonFilter = () => {
 
   const handleCheckboxChange = (index) => {
     const newSelectedOptions = [...selectedOptions];
-    newSelectedOptions[index] = !newSelectedOptions[index];
+    newSelectedOptions[index].isActive = !newSelectedOptions[index].isActive;
     setSelectedOptions(newSelectedOptions);
   };
 
   const resetFilters = () => {
-    setSelectedOptions(new Array(options.length).fill(false));
+    setSelectedOptions(options);
+    setDestinations(originalDestinations);
   };
 
   const saveFilters = () => {
     console.log("Selected options:", selectedOptions);
+    const dataResultFilter = destinasiWisata.filter((item) => {
+      const checking = selectedOptions.find(
+        (option) => option.isActive && option.value === item.typeLocation
+      );
+      if (!checking) return false;
+      return true;
+    });
+    setDestinations(dataResultFilter);
   };
 
   return (
     <div className="relative ">
-      <div className="flex items-center gap-1 bg-yellow-primary px-4 py-[10px] rounded-3xl text-white">
+      <div
+        className="flex items-center gap-1 bg-yellow-primary px-4 py-[10px] rounded-3xl text-white cursor-pointer"
+        onClick={toggleFilter}
+      >
         <IconFilter />
-        <button onClick={toggleFilter} className="text-white">
-          Filter
-        </button>
+        <button className="text-white">Filter</button>
       </div>
 
       {isOpen && (
@@ -64,14 +74,14 @@ const ButtonFilter = () => {
                   type="checkbox"
                   id={`checkbox-${index}`}
                   className="custom-checkbox mr-2"
-                  checked={selectedOptions[index]}
+                  checked={selectedOptions[index].isActive}
                   onChange={() => handleCheckboxChange(index)}
                 />
                 <label
                   htmlFor={`checkbox-${index}`}
                   className="text-black text-sm"
                 >
-                  {option}
+                  {option.value}
                 </label>
               </div>
             ))}

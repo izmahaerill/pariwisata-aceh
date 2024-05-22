@@ -5,8 +5,8 @@ export default function Ticked() {
     <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="1.7em"
-        height="1.7em"
+        width="1.4em"
+        height="1.4em"
         viewBox="0 0 16 16"
       >
         <g fill="black">

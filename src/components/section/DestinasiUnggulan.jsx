@@ -17,7 +17,7 @@ export default function DestinasiUnggulan() {
         </div>
         <div className="grid grid-cols-3 gap-10">
           {unggulan.map((item) => (
-            <div key={item.id} className="relative -z-10">
+            <div key={item.id} className="relative group">
               <img
                 className="bg-cover object-contain rounded-2xl"
                 src={item.url}
@@ -25,9 +25,11 @@ export default function DestinasiUnggulan() {
                 height={500}
                 alt="destinasi unggulan aceh"
               />
-              <p className="absolute inset-10 flex justify-center items-end text-center text-white text-2xl">
-                {item.text}
-              </p>
+              <div className="absolute inset-0 flex justify-center items-end ">
+                <p className="text-center text-white text-2xl transition-all duration-700 transform group-hover:-translate-y-2 group-hover:mb-[44px] group-hover:drop-shadow-customShadow mb-10">
+                  {item.text}
+                </p>
+              </div>
             </div>
           ))}
         </div>

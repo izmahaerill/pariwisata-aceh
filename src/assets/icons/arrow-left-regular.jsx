@@ -12,9 +12,9 @@ export default function ArrowLeftRegular() {
         <path
           fill="none"
           stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2.5"
           d="m14 7l-5 5m0 0l5 5"
         />
       </svg>

@@ -10,6 +10,9 @@ export default {
       boxShadow: {
         base: "1px 2px 5px 1px rgba(0, 0, 0, 0.3);",
       },
+      dropShadow: {
+        customShadow: "4px 4px 6px rgba(0, 0, 0, 0.9)",
+      },
     },
   },
   plugins: [],

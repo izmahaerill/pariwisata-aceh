@@ -1,6 +1,17 @@
 import React from "react";
+import destinasiWisata from "../../data-json/destinasi-wisata";
 
-function InputSearchDestinasi({ placeholder }) {
+function InputSearchDestinasi({ placeholder, destinations, setDestinations }) {
+  const handleChange = (event) => {
+    const inputan = event.target.value;
+    if (!inputan.trim()) {
+      return setDestinations(destinasiWisata);
+    }
+    const resultSearch = destinasiWisata.filter((item) =>
+      item.tittle.toLowerCase().includes(inputan.toLowerCase())
+    );
+    setDestinations(resultSearch);
+  };
   return (
     <div className="flex justify-center mb-10">
       <div className="relative text-gray-500 ">
@@ -21,6 +32,7 @@ function InputSearchDestinasi({ placeholder }) {
         </span>
         <input
           type="search"
+          onChange={handleChange}
           name="q"
           className="w-[700px] h-[45px] py-2 text-sm text-black bg-white rounded-3xl pl-11 outline outline-2 outline-yellow-primary focus:outline-yellow-primary focus:text-black"
           placeholder={placeholder}

@@ -1,18 +1,32 @@
 import React from "react";
-import destinasiWisata from "../../data-json/destinasi-wisata";
+import { useNavigate, useParams } from "react-router-dom";
 import Bookmark from "../../assets/icons/bookmark";
 import Location from "../../assets/icons/location";
 import Category from "../../assets/icons/category";
 import Ticked from "../../assets/icons/ticked";
-import Arrowbase from "../../assets/icons/arrow-base";
+import ArrowwhiterightRegular from "../../assets/icons/arrowwhiteright-regular";
+import destinasiWisata from "../../data-json/destinasi-wisata";
 
-export default function DestinasiWisata() {
+export default function DestinasiWisata({ destinations }) {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const item = destinasiWisata.find((location) => location.id === parseInt(id));
+
+  const handleCardClick = (id) => {
+    navigate(`/destinasi-wisata/${id}`);
+  };
+
+  if (!destinations.length) {
+    return <h1>Destinations belum tersedia</h1>;
+  }
+
   return (
     <div className="grid grid-cols-3 gap-10">
-      {destinasiWisata.map((item) => (
+      {destinations.map((item) => (
         <div
           key={item.id}
           className="px-5 py-5 border-2 border-yellow-primary rounded-2xl flex flex-col gap-6 w-full h-full cursor-pointer"
+          onClick={() => handleCardClick(item.id)}
         >
           <img
             className="rounded-2xl w-auto h-auto bg-contain"
@@ -27,20 +41,20 @@ export default function DestinasiWisata() {
               <h3 className="text-xl font-semibold">{item.tittle}</h3>
               <Bookmark />
             </div>
-            <div className="flex justify-start items-center gap-4">
+            <div className="flex justify-start items-center gap-2">
               <div className="flex flex-col gap-2">
-                <Location />
-                <Category />
+                <Location width="1.4rem" height="1.4rem" fill="black" />
+                <Category width="1.4rem" height="1.4rem" fill="black" />
                 <Ticked />
               </div>
-              <div className="flex flex-col gap-4 text-md">
-                <h6>{item.location}</h6>
+              <div className="flex flex-col text-start gap-2 text-md">
+                <h6>{item.locate}</h6>
                 <h6>{item.typeLocation}</h6>
                 <h6>{item.typeSellTicket}</h6>
               </div>
             </div>
-            <h6 className="text-sm flex justify-end items-center">
-              Selengkapnya <Arrowbase />
+            <h6 className="text-sm flex justify-end items-center ">
+              Selengkapnya <ArrowwhiterightRegular />
             </h6>
           </div>
         </div>
