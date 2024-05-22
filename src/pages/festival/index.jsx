@@ -31,6 +31,7 @@ export default function index() {
     setIndex(index + 1);
     refreshDataFestival(index + 1);
   };
+
   return (
     <>
       <Navigation>

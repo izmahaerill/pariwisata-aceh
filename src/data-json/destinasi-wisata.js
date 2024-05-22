@@ -27,7 +27,7 @@ const destinasiWisata = [
     location: { lat: 3.769304872548158, lng: 97.1743388690795 },
     locate: "Kec. Kutapanjang, Kab. Gayo Lues",
     typeLocation: "Wisata Alam",
-    typeSellTicket: "Online",
+    typeSellTicket: "Offline",
   },
   {
     id: 4,
