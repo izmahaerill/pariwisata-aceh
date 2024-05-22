@@ -1,7 +1,7 @@
 const destinasiWisata = [
   {
     id: 1,
-    url: "/images/mie-aceh.png",
+    url: "/images/masjid-baiturrahman.png",
     tittle: "Masjid Raya Baiturrahman",
     location: "Kec. Baiturrahman, Kota Banda Aceh",
     typeLocation: "Masjid",
@@ -17,7 +17,7 @@ const destinasiWisata = [
   },
   {
     id: 3,
-    url: "/images/mie-aceh.png",
+    url: "/images/tugu-nol-kilometer.png",
     tittle: "Tugu Nol Kilometer",
     location: "Desa Iboih, Kec. Sukakarya, Kota Sabang",
     typeLocation: "Wisata Buatan",
@@ -41,7 +41,7 @@ const destinasiWisata = [
   },
   {
     id: 6,
-    url: "/images/mie-aceh.png",
+    url: "/images/blang-kolam.png",
     tittle: "Air Terjung Blang Kolam",
     location: "Kec. Kuta Makmur, Kab. Aceh Utara",
     typeLocation: "Air Terjun",
@@ -49,7 +49,7 @@ const destinasiWisata = [
   },
   {
     id: 7,
-    url: "/images/mie-aceh.png",
+    url: "/images/kuala-merisi.png",
     tittle: "Pantai Kuala Merisi",
     location: "Desa Keutapang, Kec. Krueng Sabe",
     typeLocation: "Pantai",
@@ -65,7 +65,7 @@ const destinasiWisata = [
   },
   {
     id: 9,
-    url: "/images/mie-aceh.png",
+    url: "/images/benteng-indrapatra.png",
     tittle: "Benteng Indra Patra",
     location: "Kec. Baitussalam, Kab. Aceh Besar",
     typeLocation: "Wisata Buatan",
