@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import Footer from "./footer";
-
+import nav from "./../data-json/navigation";
+import { useLocation } from "react-router-dom";
 export default function Navigation({ children }) {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
   };
+
+  let { pathname } = useLocation();
 
   return (
     <>
@@ -19,36 +22,18 @@ export default function Navigation({ children }) {
             alt="Home Logo"
           ></img>
           <div className="flex justify-center items-center gap-7">
-            <a
-              href="/"
-              className="text-black hover:text-yellow-primary duration-150 ease-in-out"
-            >
-              Home
-            </a>
-            <a
-              href="/destinasi-wisata"
-              className="text-black hover:text-yellow-primary duration-150 ease-in-out"
-            >
-              Destinasi Wisata
-            </a>
-            <a
-              href="/festival"
-              className="text-black hover:text-yellow-primary duration-150 ease-in-out"
-            >
-              Festival
-            </a>
-            <a
-              href="/bookmark"
-              className="text-black hover:text-yellow-primary duration-150 ease-in-out"
-            >
-              Bookmark
-            </a>
-            <a
-              href="/berita"
-              className="text-black hover:text-yellow-primary duration-150 ease-in-out"
-            >
-              Berita
-            </a>
+            {nav.map((item, index) => (
+              <a
+                key={index}
+                href={item.route}
+                className={`text-black hover:text-yellow-primary ${
+                  pathname === item.route && "text-yellow-primary"
+                } duration-150 ease-in-out`}
+              >
+                {item.desc}
+              </a>
+            ))}
+
             <div className="relative">
               <button
                 onClick={toggleDropdown}
@@ -79,7 +64,7 @@ export default function Navigation({ children }) {
               <button className="outline outline-1 outline-yellow-primary py-[2px] px-5 rounded-md hover:bg-yellow-primary hover:text-white duration-150 ease-in-out">
                 Login
               </button>
-              </a>
+            </a>
           </div>
         </nav>
       </header>

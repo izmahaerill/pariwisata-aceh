@@ -32,7 +32,7 @@ export default function DetailBerita() {
               <p className="text-sm">{selectedItem.timePost}</p>
               <div className="flex flex-col gap-4">
                 {selectedItem.desc.map((item) => (
-                  <p>{selectedItem.desc}</p>
+                  <p>{item}</p>
                 ))}
               </div>
             </article>

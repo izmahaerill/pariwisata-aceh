@@ -1,10 +1,11 @@
 import React from "react";
 import ArrowBase from "../../assets/icons/arrow-base";
+import { Link } from "react-router-dom";
 
 export default function HeroImage() {
   return (
     <>
-      <div className="mt-[65px] -z-10 bg-gradient-to-b from-black to-[#162b4c]">
+      <div className="mt-[65px] relative -z-10 bg-gradient-to-b from-black to-[#162b4c]">
         <img
           className="w-full h-[50vh] object-fill"
           src="/images/bg-heroimage.png"
@@ -17,12 +18,12 @@ export default function HeroImage() {
             Beragam Destinasi Wisata Aceh yang Wajib Anda Kunjungi
           </h1>
           <div className="cursor-pointer">
-            <a
+            <Link
               href="/destinasi-wisata"
-              className="bg-yellow-primary text-base py-1 rounded-lg flex justify-center items-center gap-1 cursor-pointer"
+              className="bg-yellow-primary  text-base py-1 rounded-lg flex justify-center items-center gap-1 cursor-pointer z-40"
             >
               Jelajahi Aceh <ArrowBase />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

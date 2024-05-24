@@ -22,27 +22,27 @@ export default function index() {
           {seputarAceh.map((item) => (
             <div
               key={item.id}
-              className="px-5 py-5 shadow-base rounded-2xl flex gap-6 w-full h-full cursor-pointer mb-10"
+              className="px-5 py-5 shadow-base rounded-2xl flex gap-6 w-full mb-10"
             >
               <img
                 src={item.url}
                 width={300}
                 height={300}
-                className="rounded-2xl"
+                className="rounded-2xl "
                 alt="wisata"
               />
-              <div className="flex flex-col justify-around">
+              <div className="flex flex-col justify-around w-full">
                 <p className="text-2xl text-yellow-primary font-medium w-[40rem] mb-5 ">
                   {item.tittle}
                 </p>
-                <p className="">{item.desc[0]}...</p>
+                <p className="min-w-full">{item.desc[0]}...</p>
                 <div className="flex justify-between items-center mt-14 ">
                   <div className="flex items-center gap-2 text-sm">
                     <Dates />
                     <p>{item.timePost}</p>
                   </div>
                   <p
-                    className="flex text-sm"
+                    className="flex text-sm cursor-pointer"
                     onClick={() => handleCardClick(item.id)}
                   >
                     Read More <ArrowwhiterightRegular />
