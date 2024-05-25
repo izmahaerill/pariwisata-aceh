@@ -1,4 +1,3 @@
-import React from "react";
 import unggulan from "../../data-json/destinasi-unggulan";
 import HeadingSection from "../micro/HeadingSection";
 import Arrowright from "../../assets/icons/arrowright";
@@ -17,9 +16,9 @@ export default function DestinasiUnggulan() {
         </div>
         <div className="grid grid-cols-3 gap-10">
           {unggulan.map((item) => (
-            <div key={item.id} className="relative group">
+            <div key={item.id} className="relative cursor-pointer group">
               <img
-                className="bg-cover object-contain rounded-2xl"
+                className="bg-cover group-hover:brightness-50 object-contain rounded-2xl"
                 src={item.url}
                 width={500}
                 height={500}
