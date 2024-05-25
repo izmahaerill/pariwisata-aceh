@@ -43,20 +43,19 @@ export default function Register() {
         >
           <h1 className="text-2xl text-[#ffffff] font-semibold my-6">DAFTAR</h1>
 
-          <div className="w-full flex items-center justify-center my-4">
-            <input
-              name="username"
-              type="text"
-              placeholder="Masukkan username"
-              className="w-3/4 text-yellow-primary my-2 bg-white rounded-xl p-3 text-sm focus:outline-yellow-primary focus:ring-2 px-5"
-            />
-          </div>
-
           <div className="w-full flex items-center justify-center my-2">
             <input
               name="email"
               type="email"
               placeholder="Masukkan email"
+              className="w-3/4 text-yellow-primary my-2 bg-white rounded-xl p-3 text-sm focus:outline-yellow-primary focus:ring-2 px-5"
+            />
+          </div>
+          <div className="w-full flex items-center justify-center my-4">
+            <input
+              name="username"
+              type="text"
+              placeholder="Masukkan username"
               className="w-3/4 text-yellow-primary my-2 bg-white rounded-xl p-3 text-sm focus:outline-yellow-primary focus:ring-2 px-5"
             />
           </div>
