@@ -1,15 +1,24 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Footer from "./footer";
 import nav from "./../data-json/navigation";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 export default function Navigation({ children }) {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-
+  const navigate = useNavigate();
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
   };
 
   let { pathname } = useLocation();
+  const accessToken = Cookies.get("access-token");
+  const handleToLogin = () => {
+    navigate("/login");
+  };
+  const handleLogout = () => {
+    Cookies.remove("access-token");
+    navigate("/login");
+  };
 
   return (
     <>
@@ -60,11 +69,23 @@ export default function Navigation({ children }) {
                 </div>
               )}
             </div>
-            <a href="/login">
-              <button className="outline outline-1 outline-yellow-primary py-[2px] px-5 rounded-md hover:bg-yellow-primary hover:text-white duration-150 ease-in-out">
-                Login
-              </button>
-            </a>
+            <div>
+              {!accessToken ? (
+                <button
+                  onClick={handleToLogin}
+                  className="outline outline-1 outline-yellow-primary py-[2px] px-5 rounded-md hover:bg-yellow-primary hover:text-white duration-150 ease-in-out"
+                >
+                  Login
+                </button>
+              ) : (
+                <button
+                  onClick={handleLogout}
+                  className="outline outline-1 outline-yellow-primary py-[2px] px-5 rounded-md hover:bg-yellow-primary hover:text-white duration-150 ease-in-out"
+                >
+                  Logout
+                </button>
+              )}
+            </div>
           </div>
         </nav>
       </header>

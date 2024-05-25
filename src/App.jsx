@@ -16,7 +16,6 @@ import TambahBerita from "./pages/admin/admin-berita/tambah-berita.jsx";
 import TambahFestival from "./pages/admin/admin-festival/tambah-festival.jsx";
 import EditDestinasi from "./pages/admin/admin-destinasi-wisata/edit-destinasi.jsx";
 import EditBerita from "./pages/admin/admin-berita/edit-berita.jsx";
-import editFestival from "./pages/admin/admin-festival/edit-festival.jsx";
 
 function App() {
   const router = createBrowserRouter([
