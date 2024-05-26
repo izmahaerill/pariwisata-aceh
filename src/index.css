@@ -7,6 +7,11 @@
   font-family: "Manrope", sans-serif;
 }
 
+@layer components {
+  .overlay-active {
+  }
+}
+
 .custom-checkbox {
   appearance: none;
   background-color: #fff;
@@ -30,4 +35,19 @@
   top: -4px;
   left: 2px;
   color: #fff;
+}
+
+.overlay {
+  color: #f1f1f1;
+  animation: overlayActive 0.75s ease-in-out;
+  opacity: 1;
+}
+
+@keyframes overlayActive {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
