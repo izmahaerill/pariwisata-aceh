@@ -1,7 +1,6 @@
 import React from "react";
 import Edit from "../../../assets/icons/edit";
 import Delete from "../../../assets/icons/delete";
-import ButtonAdmin from "../../../components/micro/ButtonAdmin";
 
 export default function AdminDestinasi() {
   return (
@@ -55,7 +54,17 @@ export default function AdminDestinasi() {
             </div>
           </div>
         </div>
-        <ButtonAdmin name="button-tambah" type="submit" value="Tambah" />
+
+        <div className="flex justify-center items-center my-10">
+          <button
+            className="bg-yellow-primary text-white py-2 px-4 rounded-lg"
+            name="button"
+            type="button"
+            // onClick={onClick}
+          >
+            Tambah
+          </button>
+        </div>
       </div>
     </>
   );

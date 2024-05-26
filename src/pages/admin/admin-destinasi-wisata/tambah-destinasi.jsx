@@ -1,5 +1,4 @@
 import React from "react";
-import ButtonAdmin from "../../../components/micro/ButtonAdmin";
 import InputAdmin from "../../../components/micro/InputAdmin";
 import TextareaAdmin from "../../../components/micro/TextareaAdmin";
 import Dnd from "../../../components/micro/Dnd";
@@ -23,7 +22,16 @@ export default function tambahDestinasi() {
           <InputAdmin name="input" type="text" placeholder="Detail Biaya" />
           <TextareaAdmin id={2} name="textarea" placeholder="Tips Berkunjung" />
         </div>
-        <ButtonAdmin value="Simpan" type="submit" name="button-simpan" />
+        <div className="flex justify-center items-center my-10">
+          <button
+            className="bg-yellow-primary text-white py-2 px-4 rounded-lg"
+            name="button"
+            type="button"
+            // onClick={onClick}
+          >
+            Simpan
+          </button>
+        </div>
       </div>
     </>
   );
