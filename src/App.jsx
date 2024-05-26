@@ -8,13 +8,13 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import DetailBerita from "./pages/berita/detailBerita.jsx";
 import DetailDestinasiWisata from "./pages/destinasi-wisata/detailDestinasiWisata";
-import AdminDestinasi from "./pages/admin/admin-destinasi-wisata/index.jsx";
+import AdminDestinasi from "./pages/admin/destinasi-wisata/index.jsx";
 import AdminBerita from "./pages/admin/admin-berita/index.jsx";
 import AdminFestival from "./pages/admin/admin-festival/index.jsx";
-import TambahDestinasi from "./pages/admin/admin-destinasi-wisata/tambah-destinasi.jsx";
+import TambahDestinasi from "./pages/admin/destinasi-wisata/tambah-destinasi.jsx";
 import TambahBerita from "./pages/admin/admin-berita/tambah-berita.jsx";
 import TambahFestival from "./pages/admin/admin-festival/tambah-festival.jsx";
-import EditDestinasi from "./pages/admin/admin-destinasi-wisata/edit-destinasi.jsx";
+import EditDestinasi from "./pages/admin/destinasi-wisata/edit-destinasi.jsx";
 import EditBerita from "./pages/admin/admin-berita/edit-berita.jsx";
 
 function App() {
@@ -56,19 +56,19 @@ function App() {
       element: <Register />,
     },
     {
-      path: "/admin/admin-destinasi",
+      path: "/admin/destinasi-wisata",
       element: <AdminDestinasi />,
     },
     {
-      path: "/admin/admin-destinasi/:id",
+      path: "/admin/destinasi-wisata/:id",
       element: <AdminDestinasi />,
     },
     {
-      path: "/admin/admin-destinasi/tambah-destinasi",
+      path: "/admin/destinasi-wisata/tambah-destinasi",
       element: <TambahDestinasi />,
     },
     {
-      path: "/admin/admin-destinasi/edit-destinasi",
+      path: "/admin/destinasi-wisata/edit-destinasi",
       element: <EditDestinasi />,
     },
     {
