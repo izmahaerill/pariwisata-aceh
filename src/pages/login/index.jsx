@@ -17,13 +17,12 @@ export default function Login() {
   const handleLoginWithEmailPasword = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const { email, password } = Object.fromEntries(formData.entries());
+    const formDataJson = Object.fromEntries(formData.entries());
     showSnackbar(true, "Loading...");
     try {
-      const { data } = await axios.get(
-        `https://be-pariwisata-aceh.vercel.app/auth/signin?email=${email}&password=${[
-          password,
-        ]}`
+      const { data } = await axios.post(
+        `https://be-pariwisata-aceh.vercel.app/auth/signin`,
+        formDataJson
       );
       showSnackbar(true, data.message[0]);
       Cookies.set("access-token", data.token, { expires: 7 });

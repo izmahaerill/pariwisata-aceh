@@ -12,13 +12,12 @@ export default function Register() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = new FormData(event.target);
-    const { username, email, password } = Object.fromEntries(form.entries());
+    const formDataJson = Object.fromEntries(form.entries());
     showSnackbar(true, "Loading...");
     try {
-      const { data } = await axios.get(
-        `https://be-pariwisata-aceh.vercel.app/auth/signup?username=${username}&email=${email}&password=${[
-          password,
-        ]}`
+      const { data } = await axios.post(
+        `https://be-pariwisata-aceh.vercel.app/auth/signup`,
+        formDataJson
       );
       showSnackbar(true, data.message[0]);
       setTimeout(() => {
