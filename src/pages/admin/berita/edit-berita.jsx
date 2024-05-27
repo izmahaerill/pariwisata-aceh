@@ -5,33 +5,18 @@ import Dnd from "../../../components/micro/Dnd";
 import NavigationAdmin from "../../../components/NavigationAdmin";
 import HeadingAdmin from "../../../components/micro/HeadingAdmin";
 
-export default function TambahDestinasi() {
+export default function editBerita() {
   return (
     <>
       <NavigationAdmin>
         <div className="pt-28 px-20 ">
-          <HeadingAdmin text="Tambah Destinasi Wisata" />
+          <HeadingAdmin text="Tambah Berita" />
           <Dnd />
           <div className="flex flex-col gap-2">
             <InputAdmin name="input" type="text" placeholder="masjid raya" />
-            <InputAdmin name="input" type="text" placeholder="Nama Wisata" />
-            <InputAdmin name="input" type="text" placeholder="Lokasi" />
-            <InputAdmin name="input" type="text" placeholder="Kategori" />
-            <InputAdmin name="input" type="text" placeholder="Tiket" />
+            <InputAdmin name="input" type="text" placeholder="Judul Berita" />
+            <InputAdmin name="input" type="date" placeholder="Tanggal Upload" />
             <TextareaAdmin id={1} name="textarea" placeholder="Deskripsi" />
-            <InputAdmin name="input" type="text" placeholder="Maps" />
-            <InputAdmin name="input" type="text" placeholder="Fasilitas" />
-            <InputAdmin
-              name="input"
-              type="text"
-              placeholder="Jam Operasional"
-            />
-            <InputAdmin name="input" type="text" placeholder="Detail Biaya" />
-            <TextareaAdmin
-              id={2}
-              name="textarea"
-              placeholder="Tips Berkunjung"
-            />
           </div>
           <div className="flex justify-center items-center my-10">
             <button

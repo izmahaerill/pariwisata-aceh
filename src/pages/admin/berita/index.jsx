@@ -4,15 +4,15 @@ import Edit from "../../../assets/icons/edit";
 import { useNavigate } from "react-router-dom";
 import NavigationAdmin from "../../../components/NavigationAdmin";
 
-export default function AdminDestinasi() {
+export default function AdminBerita() {
   const navigate = useNavigate();
 
   const handleButtonAddClick = () => {
-    navigate(`/admin/destinasi-wisata/tambah-destinasi`);
+    navigate(`/admin/berita/tambah-berita`);
   };
 
   const handleButtonEditClick = () => {
-    navigate("/admin/destinasi-wisata/edit-destinasi");
+    navigate("/admin/berita/edit-berita");
   };
 
   return (

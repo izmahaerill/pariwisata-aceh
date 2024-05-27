@@ -4,15 +4,15 @@ import Edit from "../../../assets/icons/edit";
 import { useNavigate } from "react-router-dom";
 import NavigationAdmin from "../../../components/NavigationAdmin";
 
-export default function AdminDestinasi() {
+export default function AdminFestival() {
   const navigate = useNavigate();
 
   const handleButtonAddClick = () => {
-    navigate(`/admin/destinasi-wisata/tambah-destinasi`);
+    navigate(`/admin/festival/tambah-festival`);
   };
 
   const handleButtonEditClick = () => {
-    navigate("/admin/destinasi-wisata/edit-destinasi");
+    navigate("/admin/festival/edit-festival");
   };
 
   return (
@@ -20,11 +20,10 @@ export default function AdminDestinasi() {
       <NavigationAdmin>
         <div className="px-20 pt-28">
           <div className="flex justify-between px-16 bg-yellow-primary py-3 text-white rounded-lg">
-            <p>Foto</p>
-            <p>Nama Wisata</p>
+            <p>Nama Festival</p>
             <p>Lokasi</p>
-            <p>Kategori</p>
-            <p>Tiket</p>
+            <p>Bulan</p>
+            <p>Tanggal</p>
             <p>Aksi</p>
           </div>
           <div className="flex flex-col gap-3 mt-3">

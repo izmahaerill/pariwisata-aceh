@@ -9,13 +9,14 @@ import Register from "./pages/register";
 import DetailBerita from "./pages/berita/detailBerita.jsx";
 import DetailDestinasiWisata from "./pages/destinasi-wisata/detailDestinasiWisata";
 import AdminDestinasi from "./pages/admin/destinasi-wisata/index.jsx";
-import AdminBerita from "./pages/admin/admin-berita/index.jsx";
-import AdminFestival from "./pages/admin/admin-festival/index.jsx";
+import AdminBerita from "./pages/admin/berita/index.jsx";
+import AdminFestival from "./pages/admin/festival/index.jsx";
 import TambahDestinasi from "./pages/admin/destinasi-wisata/tambah-destinasi.jsx";
-import TambahBerita from "./pages/admin/admin-berita/tambah-berita.jsx";
-import TambahFestival from "./pages/admin/admin-festival/tambah-festival.jsx";
+import TambahBerita from "./pages/admin/berita/tambah-berita.jsx";
+import TambahFestival from "./pages/admin/festival/tambah-festival.jsx";
 import EditDestinasi from "./pages/admin/destinasi-wisata/edit-destinasi.jsx";
-import EditBerita from "./pages/admin/admin-berita/edit-berita.jsx";
+import EditBerita from "./pages/admin/berita/edit-berita.jsx";
+import EditFestival from "./pages/admin/festival/edit-festival.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -72,36 +73,36 @@ function App() {
       element: <EditDestinasi />,
     },
     {
-      path: "/admin/admin-berita",
+      path: "/admin/berita",
       element: <AdminBerita />,
     },
     {
-      path: "/admin/admin-berita/:id",
+      path: "/admin/berita/:id",
       element: <AdminBerita />,
     },
     {
-      path: "/admin/admin-berita/tambah-berita",
+      path: "/admin/berita/tambah-berita",
       element: <TambahBerita />,
     },
     {
-      path: "/admin/admin-berita/edit-berita",
+      path: "/admin/berita/edit-berita",
       element: <EditBerita />,
     },
     {
-      path: "/admin/admin-festival",
+      path: "/admin/festival",
       element: <AdminFestival />,
     },
     {
-      path: "/admin/admin-festival/:id",
+      path: "/admin/festival/:id",
       element: <AdminFestival />,
     },
     {
-      path: "/admin/admin-festival/tambah-festival",
+      path: "/admin/festival/tambah-festival",
       element: <TambahFestival />,
     },
     {
-      path: "/admin/admin-festival/edit-festival",
-      element: <editFestival />,
+      path: "/admin/festival/edit-festival",
+      element: <EditFestival />,
     },
   ]);
 
