@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import IconFilter from "../../assets/icons/iconFilter";
-import destinasiWisata from "../../data-json/destinasi-wisata";
 
 const options = [
   { isActive: false, value: "Wisata Buatan" },
@@ -12,11 +11,12 @@ const options = [
   { isActive: false, value: "Taman Nasional" },
 ];
 
+// eslint-disable-next-line react/prop-types
 const ButtonFilter = ({ destinations, setDestinations }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState(options);
-  const [originalDestinations, setOriginalDestinations] =
-    useState(destinations);
+  const destinationsFromProps = [...destinations];
+  // eslint-disable-next-line no-unused-vars
 
   const toggleFilter = () => {
     setIsOpen(!isOpen);
@@ -30,12 +30,12 @@ const ButtonFilter = ({ destinations, setDestinations }) => {
 
   const resetFilters = () => {
     setSelectedOptions(options);
-    setDestinations(originalDestinations);
+    setDestinations(destinationsFromProps);
   };
 
   const saveFilters = () => {
     console.log("Selected options:", selectedOptions);
-    const dataResultFilter = destinasiWisata.filter((item) => {
+    const dataResultFilter = destinationsFromProps.filter((item) => {
       const checking = selectedOptions.find(
         (option) => option.isActive && option.value === item.typeLocation
       );

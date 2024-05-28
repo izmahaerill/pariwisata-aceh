@@ -6,9 +6,11 @@ import HeadingAdmin from "../../../components/micro/HeadingAdmin";
 import { useState } from "react";
 import axios from "axios";
 import useSnackbar from "../../../hooks/useSnackbar";
+import { useNavigate } from "react-router-dom";
 
 export default function TambahDestinasi() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const navigate = useNavigate();
   const { showSnackbar, Snackbar } = useSnackbar();
   const handleAddDestination = async (event) => {
     event.preventDefault();
@@ -36,8 +38,10 @@ export default function TambahDestinasi() {
       showSnackbar(true, data.message[0]);
       setTimeout(() => {
         showSnackbar(false, null);
-      }, 2000);
+        navigate("/admin/destinasi-wisata");
+      }, 1400);
     } catch (error) {
+      console.log(error);
       showSnackbar(true, error.response.data.message[0]);
       setTimeout(() => {
         showSnackbar(false, null);
@@ -73,13 +77,9 @@ export default function TambahDestinasi() {
           />
           <div className="flex flex-col gap-2">
             <InputAdmin name="title" type="text" placeholder="Nama Wisata" />
-            <InputAdmin
-              name="locate"
-              type="text"
-              placeholder="Deksripsi Lokasi"
-            />
-            <InputAdmin name="lat" type="number" placeholder="Lokasi Lat" />
-            <InputAdmin name="lng" type="number" placeholder="Lokasi Long" />
+            <InputAdmin name="locate" type="text" placeholder=" Lokasi" />
+            <InputAdmin name="lat" type="text" placeholder="Lokasi Lat" />
+            <InputAdmin name="lng" type="text" placeholder="Lokasi Long" />
             <TextareaAdmin id={1} name="desc" placeholder="Deskripsi" />
             <InputAdmin
               name="typeLocation"

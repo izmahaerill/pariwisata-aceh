@@ -1,13 +1,16 @@
 import React from "react";
-import destinasiWisata from "../../data-json/destinasi-wisata";
 
+// eslint-disable-next-line react/prop-types
 function InputSearchDestinasi({ placeholder, destinations, setDestinations }) {
   const handleChange = (event) => {
+    const destinationsFromProps = [...destinations];
+
     const inputan = event.target.value;
     if (!inputan.trim()) {
-      return setDestinations(destinasiWisata);
+      return setDestinations(destinationsFromProps);
     }
-    const resultSearch = destinasiWisata.filter((item) =>
+    // eslint-disable-next-line react/prop-types
+    const resultSearch = destinationsFromProps.filter((item) =>
       item.tittle.toLowerCase().includes(inputan.toLowerCase())
     );
     setDestinations(resultSearch);

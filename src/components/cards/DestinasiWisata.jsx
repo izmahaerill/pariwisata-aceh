@@ -1,16 +1,14 @@
+/* eslint-disable react/prop-types */
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Bookmark from "../../assets/icons/bookmark";
 import Location from "../../assets/icons/location";
 import Category from "../../assets/icons/category";
 import Ticked from "../../assets/icons/ticked";
 import ArrowwhiterightRegular from "../../assets/icons/arrowwhiteright-regular";
-import destinasiWisata from "../../data-json/destinasi-wisata";
 
 export default function DestinasiWisata({ destinations }) {
-  const { id } = useParams();
   const navigate = useNavigate();
-  const item = destinasiWisata.find((location) => location.id === parseInt(id));
 
   const handleCardClick = (id) => {
     navigate(`/destinasi-wisata/${id}`);
