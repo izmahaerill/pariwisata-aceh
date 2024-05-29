@@ -15,8 +15,35 @@ export default function AdminDestinasi() {
     navigate(`/admin/destinasi-wisata/tambah-destinasi`);
   };
 
-  const handleButtonEditClick = () => {
-    navigate("/admin/destinasi-wisata/edit-destinasi");
+  const handleButtonEditClick = (id) => {
+    navigate(`/admin/destinasi-wisata/edit-destinasi/${id}`);
+  };
+
+  const handleButtonDeleteClick = async (id, title) => {
+    const isContinue = window.confirm(
+      "Anda yakin ingin menghapus data dengan nama wisata : " + title + " ?"
+    );
+
+    if (!isContinue) return;
+    showSnackbar(true, "menghapus data..");
+    try {
+      const { data } = await axios.delete(
+        `https://be-pariwisata-aceh.vercel.app/tourist-destination/${id}`
+      );
+      showSnackbar(true, data.message[0]);
+      setTimeout(() => {
+        showSnackbar(false, null);
+      }, 1300);
+      const updateTouristDestinations = touristDestinations.filter(
+        (item) => item.id !== data.data.id
+      );
+      setTouristDestinations(updateTouristDestinations);
+    } catch (error) {
+      showSnackbar(true, error.response.data.message[0]);
+      setTimeout(() => {
+        showSnackbar(false, null);
+      }, 2000);
+    }
   };
 
   const getTouristDestinationsFromApi = async () => {
@@ -28,7 +55,6 @@ export default function AdminDestinasi() {
       showSnackbar(false, null);
       setTouristDestinations(data.data);
     } catch (error) {
-      console.log(error);
       showSnackbar(true, error.response.data.message[0]);
       setTimeout(() => {
         showSnackbar(false, null);
@@ -71,10 +97,12 @@ export default function AdminDestinasi() {
                 <p>{item.typeLocation}</p>
                 <p>{item.typeSellTicket}</p>
                 <div className="flex gap-2">
-                  <button onClick={handleButtonEditClick}>
+                  <button onClick={() => handleButtonEditClick(item.id)}>
                     <Edit />
                   </button>
-                  <button>
+                  <button
+                    onClick={() => handleButtonDeleteClick(item.id, item.title)}
+                  >
                     <Delete />
                   </button>
                 </div>

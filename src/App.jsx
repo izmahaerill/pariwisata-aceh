@@ -69,7 +69,7 @@ function App() {
       element: <TambahDestinasi />,
     },
     {
-      path: "/admin/destinasi-wisata/edit-destinasi",
+      path: "/admin/destinasi-wisata/edit-destinasi/:id",
       element: <EditDestinasi />,
     },
     {

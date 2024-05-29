@@ -39,7 +39,7 @@ export default function TambahDestinasi() {
       setTimeout(() => {
         showSnackbar(false, null);
         navigate("/admin/destinasi-wisata");
-      }, 1400);
+      }, 1000);
     } catch (error) {
       console.log(error);
       showSnackbar(true, error.response.data.message[0]);
