@@ -8,30 +8,33 @@ export default function TambahFestival() {
   return (
     <>
       <NavigationAdmin>
-        <div className="pt-28 px-20 ">
+        <form className="pt-28 px-20 ">
           <HeadingAdmin text="Tambah Festival" />
           <div className="flex flex-col gap-2">
-            <InputAdmin name="input" type="text" placeholder="masjid raya" />
-            <InputAdmin name="input" type="text" placeholder="Judul Berita" />
+            <InputAdmin name="title" type="text" placeholder="Judul" />
+            <InputAdmin name="locate" type="text" placeholder="Lokasi" />
             <InputAdmin
-              name="input"
-              type="date"
+              name="startDate"
+              type="datetime-local"
               placeholder="Tanggal festival"
             />
-            <InputAdmin name="input" type="date" placeholder="Tanggal Upload" />
+            <InputAdmin
+              name="endDate"
+              type="datetime-local"
+              placeholder="Tanggal Upload"
+            />
             <TextareaAdmin id={1} name="date" placeholder="Deskripsi" />
           </div>
           <div className="flex justify-center items-center my-10">
             <button
               className="bg-yellow-primary text-white py-2 px-4 rounded-lg"
               name="button"
-              type="button"
-              // onClick={onClick}
+              type="submit"
             >
               Simpan
             </button>
           </div>
-        </div>
+        </form>
       </NavigationAdmin>
     </>
   );
