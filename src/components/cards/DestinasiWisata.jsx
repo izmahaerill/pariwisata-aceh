@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Bookmark from "../../assets/icons/bookmark";
@@ -15,45 +14,47 @@ export default function DestinasiWisata({ destinations }) {
   };
 
   if (!destinations.length) {
-    return <h1>Destinations belum tersedia</h1>;
+    return <h1>Destinations is Loading</h1>;
   }
 
   return (
-    <div className="grid grid-cols-3 gap-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mx-auto">
       {destinations.map((item) => (
         <div
           key={item.id}
-          className="px-5 py-5 border-2 border-yellow-primary rounded-2xl flex flex-col gap-6 w-full h-full cursor-pointer"
+          className="w-full p-4 border-2 border-yellow-primary rounded-2xl flex flex-col gap-4 cursor-pointer hover:shadow-lg transition-shadow duration-300"
           onClick={() => handleCardClick(item.id)}
         >
-          <img
-            className="rounded-2xl w-auto h-auto bg-contain"
-            src={item.url}
-            width={500}
-            height={500}
-            layout="fixed"
-            alt="seputar aceh"
-          ></img>
-          <div className="flex flex-col gap-4">
-            <div className="flex justify-between ">
-              <h3 className="text-xl font-semibold">{item.tittle}</h3>
-              <Bookmark />
+          <div className="relative w-full h-52 overflow-hidden rounded-2xl">
+            <img
+              className="object-cover w-full h-full"
+              src={item.url}
+              alt={item.title}
+            />
+          </div>
+          <div className="flex flex-col gap-2 p-4">
+            {" "}
+            <div className="flex justify-between items-start">
+              <h3 className="text-lg font-semibold truncate w-3/4">
+                {item.title}
+              </h3>
+              <Bookmark className="w-5 h-5" />
             </div>
-            <div className="flex justify-start items-center gap-2">
-              <div className="flex flex-col gap-2">
-                <Location width="1.4rem" height="1.4rem" fill="black" />
-                <Category width="1.4rem" height="1.4rem" fill="black" />
-                <Ticked />
-              </div>
-              <div className="flex flex-col text-start gap-2 text-md">
-                <h6>{item.locate}</h6>
-                <h6>{item.typeLocation}</h6>
-                <h6>{item.typeSellTicket}</h6>
-              </div>
+            <div className="flex items-center gap-2">
+              <Location width="1.5rem" height="1.5rem" fill="black" />
+              <span className="text-sm truncate ">{item.locate}</span>
             </div>
-            <h6 className="text-sm flex justify-end items-center ">
-              Selengkapnya <ArrowwhiterightRegular />
-            </h6>
+            <div className="flex items-center gap-2">
+              <Category className="" fill="black" />
+              <span className="text-sm truncate">{item.typeLocation}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Ticked className="w-4 h-4" />
+              <span className="text-sm truncate">{item.typeSellTicket}</span>
+            </div>
+            <div className="text-sm flex justify-end items-center ">
+              Selengkapnya <ArrowwhiterightRegular className="w-4 h-4" />
+            </div>
           </div>
         </div>
       ))}

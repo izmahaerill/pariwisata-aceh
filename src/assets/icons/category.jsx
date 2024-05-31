@@ -4,8 +4,10 @@ export default function Category({ width, height, fill }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={width}
-      height={height}
+      // width={width}
+      // height={height}
+      width="22.4px"
+      height="22.4px"
       viewBox="0 0 24 24"
     >
       <path
