@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Navigation from "../../components/Navigation";
 import axios from "axios";
 import useSnackbar from "../../hooks/useSnackbar";
+import { formatDateFromIsoString } from "../../utils/date.utils";
 
 export default function DetailBerita() {
   const { id } = useParams();
@@ -55,7 +56,9 @@ export default function DetailBerita() {
                 </div>
                 <article className="flex flex-col gap-5 px-10 text-justify">
                   <h2 className="text-2xl font-medium">{news.tagLine}</h2>
-                  <p className="text-sm">{news.dateRelease}</p>
+                  <p className="text-sm">
+                    {formatDateFromIsoString(news.dateRelease)}
+                  </p>
                   <div className="flex flex-col gap-4">
                     <p>{news.desc}</p>
                   </div>

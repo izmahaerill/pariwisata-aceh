@@ -33,7 +33,7 @@ export default function HomeCard() {
           .map((item) => (
             <div
               key={item.id}
-              className="px-5 py-5 border-2 border-yellow-primary rounded-2xl flex flex-col gap-6 w-[23rem] h-[30rem] cursor-pointer"
+              className="px-5 py-5 border-2 border-yellow-primary rounded-2xl flex flex-col gap-6 w-[23rem] h-[27rem] cursor-pointer"
               onClick={() => handleCardClick(item.id)}
             >
               <img
@@ -46,7 +46,7 @@ export default function HomeCard() {
               />
               <div className="flex flex-col gap-2 ">
                 <div className="overflow-hidden">
-                  <h3 className="text-xl font-semibold h-14 overflow-hidden">
+                  <h3 className="text-xl font-semibold h-10 overflow-hidden">
                     {item.title}
                   </h3>
                 </div>

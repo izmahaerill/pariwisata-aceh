@@ -60,7 +60,7 @@ export default function Index() {
               />
               <div className="flex flex-col justify-around w-full">
                 <p className="text-2xl text-yellow-primary font-medium w-[40rem] mb-5 ">
-                  {item.title}
+                  {item.tagLine}
                 </p>
                 <p className="min-w-full">{item.desc}...</p>
                 <div className="flex justify-between items-center mt-14 ">
