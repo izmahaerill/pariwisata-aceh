@@ -3,10 +3,11 @@ import TextareaAdmin from "../../../components/micro/TextareaAdmin";
 import Dnd from "../../../components/micro/Dnd";
 import NavigationAdmin from "../../../components/NavigationAdmin";
 import HeadingAdmin from "../../../components/micro/HeadingAdmin";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import useSnackbar from "../../../hooks/useSnackbar";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 export default function TambahDestinasi() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -64,6 +65,10 @@ export default function TambahDestinasi() {
       }, 2000);
     }
   };
+  useEffect(() => {
+    const accessToken = Cookies.get("admin-access-token");
+    if (!accessToken) navigate("/admin/login");
+  }, []);
 
   return (
     <>

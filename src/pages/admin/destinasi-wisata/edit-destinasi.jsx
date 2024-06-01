@@ -7,6 +7,7 @@ import HeadingAdmin from "../../../components/micro/HeadingAdmin";
 import { useNavigate, useParams } from "react-router-dom";
 import useSnackbar from "../../../hooks/useSnackbar";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 export default function EditDestinasi() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -83,6 +84,11 @@ export default function EditDestinasi() {
 
   useEffect(() => {
     getTouristDestinationFromApi();
+  }, []);
+
+  useEffect(() => {
+    const accessToken = Cookies.get("admin-access-token");
+    if (!accessToken) navigate("/admin/login");
   }, []);
 
   return (

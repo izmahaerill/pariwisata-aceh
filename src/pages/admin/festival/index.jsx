@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import NavigationAdmin from "../../../components/NavigationAdmin";
 import useSnackbar from "../../../hooks/useSnackbar";
 import axios from "axios";
+import { formatDateFromIsoString } from "../../../utils/date.utils";
+import Cookies from "js-cookie";
 
 export default function AdminFestival() {
   const [festival, setFestival] = useState([]);
@@ -16,13 +18,13 @@ export default function AdminFestival() {
     navigate(`/admin/festival/tambah-festival`);
   };
 
-  const handleButtonEditClick = () => {
-    navigate("/admin/festival/edit-festival");
+  const handleButtonEditClick = (id) => {
+    navigate(`/admin/festival/edit-festival/${id}`);
   };
 
   const handleButtonDeleteClick = async (id, title) => {
     const isContinue = window.confirm(
-      "Anda yakin ingin menghapus data dengan nama wisata : " + title + " ?"
+      "Anda yakin ingin menghapus data festival dengan title : " + title + " ?"
     );
 
     if (!isContinue) return;
@@ -67,6 +69,11 @@ export default function AdminFestival() {
     getFestivalFromApi();
   }, []);
 
+  useEffect(() => {
+    const accessToken = Cookies.get("admin-access-token");
+    if (!accessToken) navigate("/admin/login");
+  }, []);
+
   return (
     <>
       <Snackbar />
@@ -89,8 +96,8 @@ export default function AdminFestival() {
                 <p>{item.title}</p>
                 <p>{item.desc}</p>
                 <p>{item.locate}</p>
-                <p>{item.startDate}</p>
-                <p>{item.endDate}</p>
+                <p>{formatDateFromIsoString(item.startDate)}</p>
+                <p>{formatDateFromIsoString(item.endDate)}</p>
                 <div className="flex gap-2">
                   <button onClick={() => handleButtonEditClick(item.id)}>
                     <Edit />

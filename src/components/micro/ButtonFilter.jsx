@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import IconFilter from "../../assets/icons/iconFilter";
 
@@ -12,10 +13,9 @@ const options = [
 ];
 
 // eslint-disable-next-line react/prop-types
-const ButtonFilter = ({ destinations, setDestinations }) => {
+const ButtonFilter = ({ dataOld, setDestinations }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState(options);
-  const destinationsFromProps = [...destinations];
   // eslint-disable-next-line no-unused-vars
 
   const toggleFilter = () => {
@@ -30,12 +30,12 @@ const ButtonFilter = ({ destinations, setDestinations }) => {
 
   const resetFilters = () => {
     setSelectedOptions(options);
-    setDestinations(destinationsFromProps);
+    setDestinations(dataOld);
   };
 
   const saveFilters = () => {
     console.log("Selected options:", selectedOptions);
-    const dataResultFilter = destinationsFromProps.filter((item) => {
+    const dataResultFilter = dataOld.filter((item) => {
       const checking = selectedOptions.find(
         (option) => option.isActive && option.value === item.typeLocation
       );

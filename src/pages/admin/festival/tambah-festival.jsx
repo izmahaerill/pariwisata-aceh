@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TextareaAdmin from "../../../components/micro/TextareaAdmin";
 import NavigationAdmin from "../../../components/NavigationAdmin";
 import InputAdmin from "../../../components/micro/InputAdmin";
@@ -6,6 +6,8 @@ import HeadingAdmin from "../../../components/micro/HeadingAdmin";
 import axios from "axios";
 import useSnackbar from "../../../hooks/useSnackbar";
 import { useNavigate } from "react-router-dom";
+import { convertInputDateToIsoString } from "../../../utils/date.utils";
+import Cookies from "js-cookie";
 
 export default function TambahFestival() {
   const navigate = useNavigate();
@@ -14,23 +16,18 @@ export default function TambahFestival() {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formDataJson = Object.fromEntries(formData.entries());
-    // if (!formDataJson.file.size) {
-    //   setTimeout(() => {
-    //     showSnackbar(false, null);
-    //   }, 2000);
-    //   return;
-    // }
-    const config = {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    };
+
+    const endDate = convertInputDateToIsoString(formDataJson.endDate);
+    const startDate = convertInputDateToIsoString(formDataJson.startDate);
+
+    formDataJson.endDate = endDate;
+    formDataJson.startDate = startDate;
+
     showSnackbar(true, "Loading...");
     try {
       const { data } = await axios.post(
         `https://be-pariwisata-aceh.vercel.app/festival/add`,
-        formDataJson,
-        config
+        formDataJson
       );
       showSnackbar(true, data.message[0]);
       setTimeout(() => {
@@ -61,6 +58,10 @@ export default function TambahFestival() {
   //   }
   // };
 
+  useEffect(() => {
+    const accessToken = Cookies.get("admin-access-token");
+    if (!accessToken) navigate("/admin/login");
+  }, []);
   return (
     <>
       <Snackbar />
@@ -72,15 +73,17 @@ export default function TambahFestival() {
             <InputAdmin name="locate" type="text" placeholder="Lokasi" />
             <InputAdmin
               name="startDate"
-              type="datetime-local"
-              placeholder="Tanggal festival"
+              type="date"
+              placeholder="dd-mm-yyyy"
+              min="2000-01-01"
             />
             <InputAdmin
               name="endDate"
-              type="datetime-local"
-              placeholder="Tanggal Upload"
+              type="date"
+              placeholder="dd-mm-yyyy"
+              min="2000-01-01"
             />
-            <TextareaAdmin id={1} name="date" placeholder="Deskripsi" />
+            <TextareaAdmin id={1} name="desc" placeholder="Deskripsi" />
           </div>
           <div className="flex justify-center items-center my-10">
             <button

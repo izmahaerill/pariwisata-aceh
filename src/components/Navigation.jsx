@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Footer from "./footer";
 import nav from "./../data-json/navigation";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 export default function Navigation({ children }) {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -24,12 +24,14 @@ export default function Navigation({ children }) {
     <>
       <header className="bg-white shadow-md py-3 px-20 fixed w-full z-50">
         <nav className="flex justify-between h-10 ">
-          <img
-            src={"/images/home-logo.png"}
-            width={50}
-            height={50}
-            alt="Home Logo"
-          ></img>
+          <Link to="/">
+            <img
+              src={"/images/home-logo.png"}
+              width={60}
+              height={60}
+              alt="Home Logo"
+            />
+          </Link>
           <div className="flex justify-center items-center gap-7">
             {nav.map((item, index) => (
               <a

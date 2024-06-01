@@ -1,15 +1,9 @@
 import { React, useState } from "react";
-import festival from "../../data-json/card-festival";
 import Location from "../../assets/icons/location";
 import Dates from "../../assets/icons/dates";
+import { formatDateFromIsoString } from "../../utils/date.utils";
 
-export default function Festival({
-  dataFestival,
-  setDataFestival,
-  index,
-  setIndex,
-  month,
-}) {
+export default function Festival({ dataFestival, index, setIndex, month }) {
   return (
     <>
       <div className="px-10">
@@ -29,9 +23,10 @@ export default function Festival({
                   <Dates />
                 </div>
                 <div className="flex flex-col justify-center gap-2 mb-3">
-                  <h4 className="text-lg">{item.location}</h4>
+                  <h4 className="text-lg">{item.locate}</h4>
                   <p className="text-lg">
-                    {item.date} {item.month}
+                    {formatDateFromIsoString(item.startDate)} -{" "}
+                    {formatDateFromIsoString(item.endDate)}
                   </p>
                 </div>
               </div>

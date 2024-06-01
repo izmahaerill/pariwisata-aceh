@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import NavigationAdmin from "../../../components/NavigationAdmin";
 import axios from "axios";
 import useSnackbar from "../../../hooks/useSnackbar";
+import Cookies from "js-cookie";
 
 export default function AdminDestinasi() {
   const [touristDestinations, setTouristDestinations] = useState([]);
@@ -64,6 +65,10 @@ export default function AdminDestinasi() {
 
   useEffect(() => {
     getTouristDestinationsFromApi();
+  }, []);
+  useEffect(() => {
+    const accessToken = Cookies.get("admin-access-token");
+    if (!accessToken) navigate("/admin/login");
   }, []);
 
   return (

@@ -8,6 +8,7 @@ import useSnackbar from "../../hooks/useSnackbar";
 
 export default function Index() {
   const [touristDestinations, setTouristDestinations] = useState([]);
+  const [afterFilter, setAfterFilter] = useState([]);
   const { Snackbar, showSnackbar } = useSnackbar();
   const getTouristDestinationsFromApi = async () => {
     showSnackbar(true, "get data...");
@@ -17,6 +18,7 @@ export default function Index() {
       );
       showSnackbar(false, null);
       setTouristDestinations(data.data);
+      setAfterFilter(data.data);
     } catch (error) {
       console.log(error);
       showSnackbar(true, error.response.data.message[0]);
@@ -37,16 +39,16 @@ export default function Index() {
         <div className="px-20 pt-28">
           <div className="flex gap-5 justify-center items-start">
             <InputSearchDestinasi
-              destinations={touristDestinations}
-              setDestinations={setTouristDestinations}
+              dataOld={touristDestinations}
+              setDestinations={setAfterFilter}
               placeholder="Temukan Destinasi yang Ingin Anda Tuju"
             />
             <ButtonFilter
-              destinations={touristDestinations}
-              setDestinations={setTouristDestinations}
+              dataOld={touristDestinations}
+              setDestinations={setAfterFilter}
             />
           </div>
-          <DestinasiWisata destinations={touristDestinations} />
+          <DestinasiWisata destinations={afterFilter} />
         </div>
       </Navigation>
     </>

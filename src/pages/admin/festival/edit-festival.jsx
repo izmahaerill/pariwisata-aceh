@@ -6,6 +6,11 @@ import TextareaAdmin from "../../../components/micro/TextareaAdmin";
 import NavigationAdmin from "../../../components/NavigationAdmin";
 import InputAdmin from "../../../components/micro/InputAdmin";
 import HeadingAdmin from "../../../components/micro/HeadingAdmin";
+import {
+  convertInputDateToIsoString,
+  formatToDateInput,
+} from "../../../utils/date.utils";
+import Cookies from "js-cookie";
 
 export default function EditFestival() {
   const [dataBeforeUpdate, setDataBeforeUpdate] = useState(null);
@@ -17,20 +22,17 @@ export default function EditFestival() {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formDataJson = Object.fromEntries(formData.entries());
-    if (!formDataJson.file.size) {
-      formDataJson.file = null;
-    }
-    const config = {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    };
+
+    const endDate = convertInputDateToIsoString(formDataJson.endDate);
+    const startDate = convertInputDateToIsoString(formDataJson.startDate);
+
+    formDataJson.endDate = endDate;
+    formDataJson.startDate = startDate;
     showSnackbar(true, "Loading...");
     try {
       const { data } = await axios.put(
         `https://be-pariwisata-aceh.vercel.app/festival/${id}`,
-        formDataJson,
-        config
+        formDataJson
       );
       showSnackbar(true, data.message[0]);
       setTimeout(() => {
@@ -66,6 +68,10 @@ export default function EditFestival() {
     getFestivalFromApi();
   }, []);
 
+  useEffect(() => {
+    const accessToken = Cookies.get("admin-access-token");
+    if (!accessToken) navigate("/admin/login");
+  }, []);
   return (
     <>
       <Snackbar />
@@ -86,16 +92,19 @@ export default function EditFestival() {
               defaultValue={dataBeforeUpdate?.locate}
             />
             <InputAdmin
-              name="input"
+              name="startDate"
               type="date"
-              placeholder="Tanggal Mulai"
-              defaultValue={dataBeforeUpdate?.startDate}
+              defaultValue={
+                dataBeforeUpdate &&
+                formatToDateInput(dataBeforeUpdate.startDate)
+              }
             />
             <InputAdmin
-              name="input"
+              name="endDate"
               type="date"
-              placeholder="Tanggal Berakhir"
-              defaultValue={dataBeforeUpdate?.endDate}
+              defaultValue={
+                dataBeforeUpdate && formatToDateInput(dataBeforeUpdate.endDate)
+              }
             />
             <TextareaAdmin
               id={1}

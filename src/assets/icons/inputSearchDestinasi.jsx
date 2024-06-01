@@ -1,17 +1,15 @@
 import React from "react";
 
 // eslint-disable-next-line react/prop-types
-function InputSearchDestinasi({ placeholder, destinations, setDestinations }) {
+function InputSearchDestinasi({ dataOld, placeholder, setDestinations }) {
   const handleChange = (event) => {
-    const destinationsFromProps = [...destinations];
-
     const inputan = event.target.value;
     if (!inputan.trim()) {
-      return setDestinations(destinationsFromProps);
+      return setDestinations(dataOld);
     }
     // eslint-disable-next-line react/prop-types
-    const resultSearch = destinationsFromProps.filter((item) =>
-      item.tittle.toLowerCase().includes(inputan.toLowerCase())
+    const resultSearch = dataOld.filter((item) =>
+      item.title.toLowerCase().includes(inputan.toLowerCase())
     );
     setDestinations(resultSearch);
   };

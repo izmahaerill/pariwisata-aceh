@@ -17,6 +17,7 @@ import TambahFestival from "./pages/admin/festival/tambah-festival.jsx";
 import EditDestinasi from "./pages/admin/destinasi-wisata/edit-destinasi.jsx";
 import EditBerita from "./pages/admin/berita/edit-berita.jsx";
 import EditFestival from "./pages/admin/festival/edit-festival.jsx";
+import LoginAdmin from "./pages/admin/login/index.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -53,6 +54,11 @@ function App() {
       element: <Login />,
     },
     {
+      path: "/admin/login",
+      element: <LoginAdmin />,
+    },
+
+    {
       path: "/register",
       element: <Register />,
     },
@@ -85,7 +91,7 @@ function App() {
       element: <TambahBerita />,
     },
     {
-      path: "/admin/berita/edit-berita",
+      path: "/admin/berita/edit-berita/:id",
       element: <EditBerita />,
     },
     {
@@ -93,15 +99,11 @@ function App() {
       element: <AdminFestival />,
     },
     {
-      path: "/admin/festival/:id",
-      element: <AdminFestival />,
-    },
-    {
       path: "/admin/festival/tambah-festival",
       element: <TambahFestival />,
     },
     {
-      path: "/admin/festival/edit-festival",
+      path: "/admin/festival/edit-festival/:id",
       element: <EditFestival />,
     },
   ]);

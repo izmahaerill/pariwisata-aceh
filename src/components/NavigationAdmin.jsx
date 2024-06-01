@@ -1,8 +1,16 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import navAdmin from "../data-json/navigationForAdmin";
+import Cookies from "js-cookie";
+
 export default function NavigationAdmin({ children }) {
   let { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const handleToLogin = () => {
+    Cookies.remove("admin-access-token");
+    navigate("/admin/login");
+  };
 
   return (
     <>
@@ -28,10 +36,10 @@ export default function NavigationAdmin({ children }) {
             ))}
             <div>
               <button
-                // onClick={handleToLogin}
+                onClick={handleToLogin}
                 className="outline outline-1 outline-yellow-primary py-[2px] px-5 rounded-md hover:bg-yellow-primary hover:text-white duration-150 ease-in-out"
               >
-                Login
+                Keluar
               </button>
             </div>
           </div>
