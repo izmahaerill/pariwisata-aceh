@@ -1,11 +1,11 @@
 const bookmark = [
   {
     id: 1,
-    url: "/images/masjid-baiturrahman.png",
-    title: "Masjid Raya Baiturrahman",
-    location: "Kec. Baiturrahman, Kota Banda Aceh",
-    typeLocation: "Masjid",
-    typeSellTicket: "Gratis",
+    url: "/images/gunung-lauser.png",
+    title: "Taman Nasional Gunung Leuser",
+    location: "Kec. Kutapanjang, Kab. Gayo Lues",
+    typeLocation: "Wisata Alam",
+    typeSellTicket: "Offline",
   },
   {
     id: 2,
