@@ -1,7 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function page() {
   const currentYears = new Date().getFullYear();
+  const { t } = useTranslation();
 
   return (
     <footer>
@@ -21,12 +23,7 @@ export default function page() {
             alt="wisata aceh"
           />
         </div>
-        <p className="w-[25rem] text-sm">
-          Wisata Aceh merupakan platform daring yang didedikasikan untuk
-          mempromosikan pariwisata Provinsi Aceh secara menyeluruh. Melalui
-          website ini, pengunjung dapat menjelajahi berbagai destinasi wisata
-          yang menarik di Aceh,
-        </p>
+        <p className="w-[25rem] text-sm">{t("footer.desc")}</p>
       </div>
       <p className="flex justify-center items-center -mt-10 text-sm text-black">
         &copy; Copyright {currentYears}

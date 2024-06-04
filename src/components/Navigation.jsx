@@ -3,11 +3,18 @@ import Footer from "./footer";
 import nav from "./../data-json/navigation";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useTranslation } from "react-i18next";
+
 export default function Navigation({ children }) {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const navigate = useNavigate();
-  const toggleDropdown = () => {
+
+  const { i18n } = useTranslation();
+
+  const toggleDropdown = (lng) => {
     setIsDropdownVisible(!isDropdownVisible);
+
+    i18n.changeLanguage(lng);
   };
 
   let { pathname } = useLocation();
@@ -57,14 +64,14 @@ export default function Navigation({ children }) {
                   <a
                     href="#"
                     className="block hover:text-yellow-primary border-b border-yellow-primary duration-150 ease-in-out "
-                    onClick={toggleDropdown}
+                    onClick={() => toggleDropdown("id")}
                   >
                     Indonesia
                   </a>
                   <a
                     href="#"
                     className="block hover:text-yellow-primary duration-150 ease-in-out"
-                    onClick={toggleDropdown}
+                    onClick={() => toggleDropdown("en")}
                   >
                     English
                   </a>

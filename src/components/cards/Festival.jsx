@@ -10,7 +10,7 @@ export default function Festival({ dataFestival, index, setIndex, month }) {
         {dataFestival.map((item) => (
           <div
             key={item.id}
-            className="px-3 py-3 shadow-base rounded-2xl flex flex-col gap-6 w-auto h-auto cursor-pointer mb-7"
+            className="px-3 py-3 shadow-base rounded-2xl flex flex-col gap-6 w-auto h-auto mb-7"
           >
             <div className="flex flex-col gap-3 px-4">
               <h3 className="text-2xl text-yellow-primary font-medium ">

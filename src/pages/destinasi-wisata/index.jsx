@@ -5,11 +5,13 @@ import InputSearchDestinasi from "../../assets/icons/inputSearchDestinasi";
 import ButtonFilter from "../../components/micro/ButtonFilter";
 import axios from "axios";
 import useSnackbar from "../../hooks/useSnackbar";
+import { useTranslation } from "react-i18next";
 
 export default function Index() {
   const [touristDestinations, setTouristDestinations] = useState([]);
   const [afterFilter, setAfterFilter] = useState([]);
   const { Snackbar, showSnackbar } = useSnackbar();
+  const { t } = useTranslation();
   const getTouristDestinationsFromApi = async () => {
     showSnackbar(true, "get data...");
     try {
@@ -41,7 +43,7 @@ export default function Index() {
             <InputSearchDestinasi
               dataOld={touristDestinations}
               setDestinations={setAfterFilter}
-              placeholder="Temukan Destinasi yang Ingin Anda Tuju"
+              placeholder={t("search-placeholder")}
             />
             <ButtonFilter
               dataOld={touristDestinations}

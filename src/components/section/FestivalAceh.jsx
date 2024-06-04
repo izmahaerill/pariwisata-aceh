@@ -1,10 +1,12 @@
 import React from "react";
 import HeadingSection from "../micro/HeadingSection";
+import { useTranslation } from "react-i18next";
 
 export default function FestivalAceh() {
+  const { t } = useTranslation();
   return (
     <div className="px-20">
-      <HeadingSection>Festival Aceh</HeadingSection>
+      <HeadingSection>{t("section-festival-aceh.title")}</HeadingSection>
       <img
         className="w-full rounded-2xl"
         src="/images/festival-aceh.png"

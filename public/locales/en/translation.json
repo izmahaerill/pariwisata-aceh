@@ -1,0 +1,46 @@
+{
+  "navigation": {
+    "home": "Home",
+    "destinasi-wisata": "Tourist Destinations",
+    "festival": "Festival",
+    "Bookmark": "Bookmark",
+    "berita": "News",
+    "bahasa": "Language"
+  },
+  "hero-image": {
+    "title": "Various Aceh Tourist Destinations That You Must Visit",
+    "cta": "Explore Aceh"
+  },
+  "second-navigation": {
+    "title-destination": "Aceh Tourist Destinations",
+    "title-festival": "Aceh Festival",
+    "title-seputar": "Around Aceh",
+    "desc-destination": "A variety of Aceh tourist destinations that you must visit for your holiday.",
+    "desc-festival": "Various interesting festivals in Aceh every year.",
+    "desc-seputar": "Get complete news about tourism about Aceh."
+  },
+  "section-destinasi-unggulan": {
+    "title": "Featured Destinations",
+    "cta": "See All",
+    "title-photo1": "Baiturrahman Grand Mosque",
+    "title-photo2": "Mount Leuser National Park",
+    "title-photo3": "Lampuuk Beach",
+    "title-photo4": "Tsunami Museum",
+    "title-photo5": "Rubiah Island",
+    "title-photo6": "Fresh Water Lake"
+  },
+  "section-festival-aceh": {
+    "title": "Aceh festival"
+  },
+  "section-seputar-aceh": {
+    "title": "Around Aceh"
+  },
+  "footer": {
+    "desc": "Wisata Aceh is an online platform dedicated to comprehensively promoting tourism in the Province of Aceh. Through this website, visitors can explore various interesting tourist destinations in Aceh."
+  },
+  "title-page": {
+    "bookmark": "Bookmark",
+    "berita-seputar-aceh": "News Around Aceh"
+  },
+  "search-placeholder": "Find the destination you want to go"
+}

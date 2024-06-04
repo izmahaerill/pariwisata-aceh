@@ -1,16 +1,21 @@
 import unggulan from "../../data-json/destinasi-unggulan";
 import HeadingSection from "../micro/HeadingSection";
 import Arrowright from "../../assets/icons/arrowright";
+import { useTranslation } from "react-i18next";
 
 export default function DestinasiUnggulan() {
+  const { t } = useTranslation();
+
   return (
     <>
       <div className="px-20">
         <div className="flex justify-between items-center">
-          <HeadingSection>Destinasi Unggulan</HeadingSection>
+          <HeadingSection>
+            {t("section-destinasi-unggulan.title")}
+          </HeadingSection>
           <a href="/destinasi-wisata">
             <button className="bg-yellow-primary text-white flex justify-center items-center py-1.5 px-4 text-xs gap-1 rounded-xl mb-6">
-              Lihat Semua <Arrowright />
+              {t("section-destinasi-unggulan.cta")} <Arrowright />
             </button>
           </a>
         </div>
@@ -26,7 +31,7 @@ export default function DestinasiUnggulan() {
               />
               <div className="absolute inset-0 flex justify-center items-end ">
                 <p className="text-center text-white text-2xl transition-all duration-700 transform group-hover:-translate-y-2 group-hover:mb-[44px] group-hover:drop-shadow-customShadow mb-10">
-                  {item.text}
+                  {t(item.text)}
                 </p>
               </div>
             </div>

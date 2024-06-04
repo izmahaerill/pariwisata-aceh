@@ -7,12 +7,14 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import useSnackbar from "../../hooks/useSnackbar";
 import { formatDateFromIsoString } from "../../utils/date.utils";
+import { useTranslation } from "react-i18next";
 
 export default function Index() {
   const [news, setNews] = useState([]);
   const { Snackbar, showSnackbar } = useSnackbar();
 
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleCardClick = (id) => {
     navigate(`/berita/${id}`);
@@ -44,7 +46,7 @@ export default function Index() {
       <Navigation>
         <div className="px-20">
           <h1 className="flex justify-center text-3xl font-medium text-yellow-primary pt-24 pb-10">
-            Berita Seputar Aceh
+            {t("title-page.berita-seputar-aceh")}{" "}
           </h1>
           {news.map((item) => (
             <div

@@ -1,8 +1,11 @@
 import Festival from "../../assets/icons/festival";
 import Mountain from "../../assets/icons/mountain";
 import News from "../../assets/icons/news";
+import { useTranslation } from "react-i18next";
 
 export default function SecondNavigation() {
+  const { t } = useTranslation();
+
   return (
     <>
       <div className="px-20 flex justify-between w-full">
@@ -14,11 +17,12 @@ export default function SecondNavigation() {
           </a>
           <div className="flex flex-col gap-1">
             <p className="text-yellow-primary text-lg font-semibold">
-              <a href="/destinasi-wisata">Destinasi wisata Aceh</a>
+              <a href="/destinasi-wisata">
+                {t("second-navigation.title-destination")}
+              </a>
             </p>
             <p className="text-gray-400 w-72 text-sm max-w-[250px]">
-              Beragam destinasi wisata Aceh yang wajib dikunjungi untuk berlibur
-              anda.
+              {t("second-navigation.desc-destination")}
             </p>
           </div>
         </div>
@@ -30,10 +34,10 @@ export default function SecondNavigation() {
           </a>
           <div className="flex flex-col gap-1">
             <p className="text-yellow-primary text-lg font-semibold">
-              <a href="/festival">Festival Aceh</a>
+              <a href="/festival">{t("second-navigation.title-festival")}</a>
             </p>
             <p className="text-gray-400 w-72 text-sm max-w-[250px]">
-              Beragam Festival di Aceh yang menarik di setiap tahunnya.
+              {t("second-navigation.desc-festival")}
             </p>
           </div>
         </div>
@@ -46,10 +50,10 @@ export default function SecondNavigation() {
 
           <div className="flex flex-col gap-1">
             <p className="text-yellow-primary text-lg font-semibold">
-              <a href="/berita">Seputar Aceh</a>
+              <a href="/berita">{t("second-navigation.title-seputar")}</a>
             </p>
             <p className="text-gray-400 w-72 text-sm max-w-[250px]">
-              Dapatkan berita lengkap mengenai wisata tentang Aceh.
+              {t("second-navigation.desc-seputar")}
             </p>
           </div>
         </div>
