@@ -1,23 +1,25 @@
+import { useTranslation } from "react-i18next";
+
 const nav = [
   {
     route: "/",
-    desc: "Home",
+    desc: "navigation.home",
   },
   {
     route: "/destinasi-wisata",
-    desc: " Destinasi Wisata",
+    desc: "navigation.destinasi-wisata",
   },
   {
     route: "/festival",
-    desc: "Festival",
+    desc: "navigation.festival",
   },
   {
     route: "/bookmark",
-    desc: "Bookmark",
+    desc: "navigation.bookmark",
   },
   {
     route: "/berita",
-    desc: "Berita",
+    desc: "navigation.berita",
   },
 ];
 

@@ -10,6 +10,7 @@ export default function Navigation({ children }) {
   const navigate = useNavigate();
 
   const { i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const toggleDropdown = (lng) => {
     setIsDropdownVisible(!isDropdownVisible);
@@ -48,7 +49,7 @@ export default function Navigation({ children }) {
                   pathname === item.route && "text-yellow-primary"
                 } duration-150 ease-in-out`}
               >
-                {item.desc}
+                {t(item.desc)}
               </a>
             ))}
 
@@ -57,24 +58,23 @@ export default function Navigation({ children }) {
                 onClick={toggleDropdown}
                 className="text-black focus:outline-none"
               >
-                Bahasa
+                {/* Bahasa */}
+                {t("navigation.bahasa")}
               </button>
               {isDropdownVisible && (
                 <div className="absolute  left-0 mt-2 py-1 px-2 bg-white rounded-md shadow-base flex flex-col outline outline-1 outline-yellow-primary">
-                  <a
-                    href="#"
+                  <button
                     className="block hover:text-yellow-primary border-b border-yellow-primary duration-150 ease-in-out "
                     onClick={() => toggleDropdown("id")}
                   >
                     Indonesia
-                  </a>
-                  <a
-                    href="#"
+                  </button>
+                  <button
                     className="block hover:text-yellow-primary duration-150 ease-in-out"
                     onClick={() => toggleDropdown("en")}
                   >
                     English
-                  </a>
+                  </button>
                 </div>
               )}
             </div>
