@@ -11,7 +11,9 @@ export default function Index() {
         <div className="text-yellow-500 font-bold">
           {t("title-page.bookmark")}
         </div>
-        <BookmarkList />{" "}
+        <div className="px-20">
+          <BookmarkList />{" "}
+        </div>
       </Navigation>
     </>
   );
