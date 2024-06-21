@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "../../components/Navigation";
 import BookmarkList from "../../components/cards/Bookmark";
+// import BookmarkPage from "../../components/cards/Bookmark";
 import { useTranslation } from "react-i18next";
 
 export default function Index() {
