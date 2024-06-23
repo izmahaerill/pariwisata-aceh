@@ -22,13 +22,12 @@ export default function DestinasiWisata({ destinations }) {
         ? { ...item, bookmark: !item.bookmark }
         : item;
     });
-
     setDestinationData(updatedDestinations);
 
-    const bookmarkedDestinations = updatedDestinations.filter(
+    const filteredDestinations = updatedDestinations.filter(
       (item) => item.bookmark
     );
-    localStorage.setItem("bookmarks", JSON.stringify(bookmarkedDestinations));
+    localStorage.setItem("bookmarks", JSON.stringify(filteredDestinations));
   };
 
   useEffect(() => {
@@ -37,7 +36,6 @@ export default function DestinasiWisata({ destinations }) {
       ...destination,
       bookmark: storedBookmarks.some((item) => item.id === destination.id),
     }));
-
     setDestinationData(initializedDestinations);
   }, [destinations]);
 
