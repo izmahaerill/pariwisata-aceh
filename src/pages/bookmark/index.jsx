@@ -45,51 +45,57 @@ export default function Bookmarks() {
           {t("title-page.bookmark")}
         </h1>
       </div>
-      <div className="px-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mx-auto">
-        {bookmarkedDestinations.map((item) => (
-          <div
-            key={item.id}
-            className="w-full p-4 border-2 border-yellow-primary rounded-2xl flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300"
-          >
-            <div className="relative w-full h-52 overflow-hidden rounded-2xl">
-              <img
-                className="object-cover w-full h-full"
-                src={item.url}
-                alt={item.title}
-              />
-            </div>
-            <div className="flex flex-col gap-2 p-4">
-              <div className="flex justify-between items-start">
-                <h3 className="text-lg font-semibold truncate w-3/4">
-                  {item.title}
-                </h3>
-                <button type="button" onClick={() => toggleBookmark(item)}>
-                  {item.bookmark ? <BoldBookmark /> : <Bookmark />}
+      {bookmarkedDestinations.length ? (
+        <div className="px-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mx-auto">
+          {bookmarkedDestinations.map((item) => (
+            <div
+              key={item.id}
+              className="w-full p-4 border-2 border-yellow-primary rounded-2xl flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300"
+            >
+              <div className="relative w-full h-52 overflow-hidden rounded-2xl">
+                <img
+                  className="object-cover w-full h-full"
+                  src={item.url}
+                  alt={item.title}
+                />
+              </div>
+              <div className="flex flex-col gap-2 p-4">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-lg font-semibold truncate w-3/4">
+                    {item.title}
+                  </h3>
+                  <button type="button" onClick={() => toggleBookmark(item)}>
+                    {item.bookmark ? <BoldBookmark /> : <Bookmark />}
+                  </button>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Location width="1.5rem" height="1.5rem" fill="black" />
+                  <span className="text-sm truncate ">{item.locate}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Category className="" fill="black" />
+                  <span className="text-sm truncate">{item.typeLocation}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Ticked className="w-4 h-4" />
+                  <span className="text-sm truncate">
+                    {item.typeSellTicket}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  className="text-sm flex justify-end items-center"
+                  onClick={() => navigateToDestinationDetails(item.id)}
+                >
+                  Selengkapnya <ArrowwhiterightRegular className="w-4 h-4" />
                 </button>
               </div>
-              <div className="flex items-center gap-2">
-                <Location width="1.5rem" height="1.5rem" fill="black" />
-                <span className="text-sm truncate ">{item.locate}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Category className="" fill="black" />
-                <span className="text-sm truncate">{item.typeLocation}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Ticked className="w-4 h-4" />
-                <span className="text-sm truncate">{item.typeSellTicket}</span>
-              </div>
-              <button
-                type="button"
-                className="text-sm flex justify-end items-center"
-                onClick={() => navigateToDestinationDetails(item.id)}
-              >
-                Selengkapnya <ArrowwhiterightRegular className="w-4 h-4" />
-              </button>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-center">No Bookmark</p>
+      )}
     </Navigation>
   );
 }
