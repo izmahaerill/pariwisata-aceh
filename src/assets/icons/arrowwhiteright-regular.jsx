@@ -8,7 +8,7 @@ export default function arrowwhiterightRegular() {
         width="1em"
         height="1em"
         viewBox="0 0 24 24"
-        className="mt-1"
+        // className="mt-1"
       >
         <path
           fill="none"
