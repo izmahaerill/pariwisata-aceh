@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        "yellow-primary": "#FFA006",
+        "yellow-primary": "#F49803",
         "gray-secondary": "#F2F2F2",
       },
       boxShadow: {
