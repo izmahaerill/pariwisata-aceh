@@ -80,12 +80,13 @@ export default function DestinasiWisata({ destinations }) {
               <Ticked className="w-4 h-4" />
               <span className="text-sm truncate">{item.typeSellTicket}</span>
             </div>
-            <div
-              className="text-sm flex justify-end items-center cursor-pointer"
+            <button
+              type="button"
+              className="text-sm flex justify-end items-center"
               onClick={() => navigateToDestinationDetails(item.id)}
             >
               Selengkapnya <ArrowwhiterightRegular className="w-4 h-4" />
-            </div>
+            </button>
           </div>
         </div>
       ))}
