@@ -60,17 +60,29 @@ export default function Index() {
       const { data } = await axios.get(
         `https://be-pariwisata-aceh.vercel.app/festival/all`
       );
+      console.log(data.data);
       showSnackbar(false, null);
-      setMonths([
-        ...months.filter((month) => {
+      // setMonths([
+      //   ...months.filter((month) => {
+      //     const result = data.data.findIndex((item) =>
+      //       formatDateFromIsoString(item.startDate).includes(month)
+      //     );
+      //     // console.log(result);
+      //     if (result !== -1) return true;
+      //     return false;
+      //   }),
+      // ]);
+      setMonths((months) => {
+        const datas = months.filter((month) => {
           const result = data.data.findIndex((item) =>
             formatDateFromIsoString(item.startDate).includes(month)
           );
-          console.log(result);
+          // console.log(result);
           if (result !== -1) return true;
           return false;
-        }),
-      ]);
+        });
+        return datas;
+      });
       setDataFestival(data.data);
       refreshDataFestival(index, data.data);
     } catch (error) {
